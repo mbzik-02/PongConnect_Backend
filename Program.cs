@@ -1,41 +1,25 @@
-var builder = WebApplication.CreateBuilder(args);
+using System.Net.WebSockets;
+using WebSockets;
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Erstellt einen neuen WebApplicationBuilder – Basis für eine minimal API bzw. ein Webserver-Projekt
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+// Baut die Anwendung (aus dem Builder wird jetzt eine lauffähige App)
+WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Konfiguriert Optionen für WebSockets
+WebSocketOptions webSocketOptions = new WebSocketOptions()
 {
-    app.MapOpenApi();
-}
-
-app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    // Intervall, in dem ein Keep-Alive-Ping gesendet wird, um Verbindungen offen zu halten (hier: alle 30 Sekunden)
+    KeepAliveInterval = TimeSpan.FromSeconds(30),
 };
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+// Middleware aktivieren, damit die App WebSocket-Anfragen unterstützen kann
+app.UseWebSockets(webSocketOptions);
 
+// die Kommunikation über WebSockets verarbeitet
+HandleWebSocketClass handleWebSocket = new HandleWebSocketClass();
+app.Use(handleWebSocket.HandleWebSocket);
+
+// Startet den Webserver und wartet auf Anfragen
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
