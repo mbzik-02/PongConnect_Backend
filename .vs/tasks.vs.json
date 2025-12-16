@@ -5,6 +5,21 @@
       "taskLabel": "Task-Program",
       "appliesTo": "Program.cs",
       "type": "launch"
+    },
+    {
+      "taskLabel": "Task-test",
+      "appliesTo": "bin/Release/net9.0/wwwroot/test.html",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "Task-ProjektWoche",
+      "appliesTo": "/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "Task-wwwroot",
+      "appliesTo": "bin/Debug/net9.0/wwwroot/",
+      "type": "launch"
     }
   ]
 }

@@ -8,7 +8,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 WebApplication app = builder.Build();
 
 // Server-Port setzen
-builder.WebHost.UseUrls("http://+:5000");
+builder.WebHost.UseUrls("http://*:5000");
 
 // Konfiguriert Optionen für WebSockets
 WebSocketOptions webSocketOptions = new WebSocketOptions()
