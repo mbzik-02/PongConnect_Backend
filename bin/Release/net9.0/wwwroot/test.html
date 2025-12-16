@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Testseite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #3333cc;
+        }
+        p {
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3333cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #5555ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Willkommen zur HTML-Testseite</h1>
+    <p>Dies ist eine einfache Testdatei, um HTML, CSS und kleine Interaktionen zu testen.</p>
+    
+    <button onclick="testButtonClick()">Klicke mich!</button>
+
+    <script>
+        function testButtonClick() {
+            alert("Der Button wurde geklickt!");
+        }
+    </script>
+</body>
+</html>

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin\\Debug\\net9.0",
+    "\\bin\\Release",
+    "\\bin\\Release\\net9.0",
+    "\\bin\\Release\\net9.0\\wwwroot"
   ],
-  "SelectedNode": "\\PongConnect_Backend.http",
   "PreviewInSolutionExplorer": false
 }

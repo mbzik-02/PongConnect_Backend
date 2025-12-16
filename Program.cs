@@ -7,6 +7,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Baut die Anwendung (aus dem Builder wird jetzt eine lauffähige App)
 WebApplication app = builder.Build();
 
+// Server-Port setzen
+builder.WebHost.UseUrls("http://192.168.100.1:443");
+
 // Konfiguriert Optionen für WebSockets
 WebSocketOptions webSocketOptions = new WebSocketOptions()
 {
@@ -20,6 +23,9 @@ app.UseWebSockets(webSocketOptions);
 // die Kommunikation über WebSockets verarbeitet
 HandleWebSocketClass handleWebSocket = new HandleWebSocketClass();
 app.Use(handleWebSocket.HandleWebSocket);
+
+//man liest alle HTML-Dateien aus dem Verzeichnis "wwwroot" und stellt sie bereit
+app.UseStaticFiles();
 
 // Startet den Webserver und wartet auf Anfragen
 app.Run();
