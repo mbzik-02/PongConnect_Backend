@@ -22,6 +22,28 @@ namespace WebSockets
                     //ein WebSocket-Objekt
                     WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
 
+                    // Prüfen: sind schon 2 Clients da?
+                    if (clients.Count >= 2)
+                    {
+                        // Optional: kurze Info an den Client senden
+                        byte[] msg = Encoding.UTF8.GetBytes("room_full");
+                        await webSocket.SendAsync(
+                            msg,
+                            WebSocketMessageType.Text,
+                            true,
+                            CancellationToken.None
+                        );
+
+                        await webSocket.CloseAsync(
+                            WebSocketCloseStatus.PolicyViolation,
+                            "Max 2 players allowed",
+                            CancellationToken.None
+                        );
+
+                        //man darf nicht in die Schleife gehen
+                        return; 
+                    }
+
                     // Erzeugt eine eindeutige ID für diesen Client
                     string clientId = Guid.NewGuid().ToString();
 
@@ -61,13 +83,20 @@ namespace WebSockets
                             break; // Schleife wirklich verlassen
                         }
 
+                        // Nachricht
                         string msg = Encoding.UTF8.GetString(buffer, 0, result.Count);
+
+                        // Anzahl aktuell verbundener Clients bestimmen
+                        int clientCount = clients.Count;
+
+                        // Payload erweitern (z.B. als JSON, oder simples Protokoll)
+                        string enrichedMsg = $"{msg}|clients={clientCount}";
 
                         foreach (WebSocket client in clients.Values)
                         {
                             if (client.State == WebSocketState.Open)
                             {
-                                byte[] bytes = Encoding.UTF8.GetBytes(msg);
+                                byte[] bytes = Encoding.UTF8.GetBytes(enrichedMsg);
 
                                 await client.SendAsync(
                                     bytes,

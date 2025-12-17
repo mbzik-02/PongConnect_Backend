@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PongConnect_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47220848b1f20adc2beb9768993103098c4c6a17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b5316311701f9cb71c5719a3da392d7d5967212")]
 [assembly: System.Reflection.AssemblyProductAttribute("PongConnect_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PongConnect_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
