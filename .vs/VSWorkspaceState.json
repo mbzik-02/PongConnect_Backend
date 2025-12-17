@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\bin\\Debug",
     "\\bin\\Debug\\net9.0",
     "\\bin\\Debug\\net9.0\\wwwroot"
   ],
-  "SelectedNode": "\\PongConnect_Backend.csproj",
   "PreviewInSolutionExplorer": false
 }

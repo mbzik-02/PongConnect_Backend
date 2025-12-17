@@ -34,49 +34,54 @@ namespace WebSockets
                     // Solange die Verbindung offen ist, empfängt der Server Nachrichten
                     while (webSocket.State == WebSocketState.Open)
                     {
-                        // Wartet auf eingehende Nachricht vom Client (blockierend)
-                        WebSocketReceiveResult result = await webSocket.ReceiveAsync(
-                            new ArraySegment<byte>(buffer),
-                            CancellationToken.None
-                        );
+                        WebSocketReceiveResult result;
 
-                        // Wenn der Client die Verbindung schließen möchte
+                        try
+                        {
+                            result = await webSocket.ReceiveAsync(
+                                new ArraySegment<byte>(buffer),
+                                CancellationToken.None
+                            );
+                        }
+                        catch (WebSocketException) // z.B. ConnectionClosedPrematurely
+                        {
+                            // Client ist „unsauber“ weg -> Verbindung aufräumen
+                            break;
+                        }
+
                         if (result.MessageType == WebSocketMessageType.Close)
                         {
-                            // Beendet sauber die Verbindung
                             await webSocket.CloseAsync(
-                                WebSocketCloseStatus.NormalClosure,
-                                "Closed by client",
+                                result.CloseStatus ?? WebSocketCloseStatus.NormalClosure,
+                                result.CloseStatusDescription ?? "Closed by client",
                                 CancellationToken.None
                             );
 
-                            // Entfernt den Client aus der Liste
                             clients.TryRemove(clientId, out _);
+                            break; // Schleife wirklich verlassen
                         }
-                        else
+
+                        string msg = Encoding.UTF8.GetString(buffer, 0, result.Count);
+
+                        foreach (WebSocket client in clients.Values)
                         {
-                            // Dekodiert die empfangene Nachricht (UTF-8)
-                            string msg = Encoding.UTF8.GetString(buffer, 0, result.Count);
-
-                            // Sendet die Nachricht an alle verbundenen Clients (Broadcast)
-                            foreach (WebSocket client in clients.Values)
+                            if (client.State == WebSocketState.Open)
                             {
-                                if (client.State == WebSocketState.Open)
-                                {
-                                    // Kodiert die Nachricht als Bytefolge
-                                    byte[] bytes = Encoding.UTF8.GetBytes(msg);
+                                byte[] bytes = Encoding.UTF8.GetBytes(msg);
 
-                                    // Sendet sie an den Client
-                                    await client.SendAsync(
-                                        bytes,
-                                        WebSocketMessageType.Text,
-                                        true, // zeigt an, dass die Nachricht komplett ist
-                                        CancellationToken.None
-                                    );
-                                }
+                                await client.SendAsync(
+                                    bytes,
+                                    WebSocketMessageType.Text,
+                                    true,
+                                    CancellationToken.None
+                                );
                             }
                         }
                     }
+
+                    // Falls noch nicht entfernt (z.B. bei Exception), cleanup:
+                    clients.TryRemove(clientId, out _);
+
                 }
                 else
                 {

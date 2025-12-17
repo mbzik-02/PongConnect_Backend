@@ -32,3 +32,10 @@ C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\obj\Debug\net9.0\refint\
 C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\obj\Debug\net9.0\PongConnect_Backend.pdb
 C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\obj\Debug\net9.0\PongConnect_Backend.genruntimeconfig.cache
 C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\obj\Debug\net9.0\ref\PongConnect_Backend.dll
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\angular.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\dist\pongconnect-frontend\prerendered-routes.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\package-lock.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\package.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\tsconfig.app.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\tsconfig.json
+C:\Users\MislavB\Documents\SchuleAP\IFA12A\ProjektWoche\bin\Debug\net9.0\Spieler\tsconfig.spec.json
