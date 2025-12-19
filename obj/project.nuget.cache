@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cF44voBRuSE=",
+  "dgSpecHash": "QWYIjiXNnqg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\PongConnect_Backend.csproj",
+  "projectFilePath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\PongConnect_Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MislavB\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
     "C:\\Users\\MislavB\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"

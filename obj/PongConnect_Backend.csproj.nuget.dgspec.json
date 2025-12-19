@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\PongConnect_Backend.csproj": {}
+    "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\PongConnect_Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\PongConnect_Backend.csproj": {
+    "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\PongConnect_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\PongConnect_Backend.csproj",
+        "projectUniqueName": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\PongConnect_Backend.csproj",
         "projectName": "PongConnect_Backend",
-        "projectPath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\PongConnect_Backend.csproj",
+        "projectPath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\PongConnect_Backend.csproj",
         "packagesPath": "C:\\Users\\MislavB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\PongConnect\\PongConnect_Backend\\obj\\",
+        "outputPath": "C:\\Users\\MislavB\\Documents\\SchuleAP\\IFA12A\\ProjektWoche\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
